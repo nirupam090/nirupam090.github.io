@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nirupam.me/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nirupam.me/assets/portrait.webp</image:loc>
+      <image:title>Nirupam Gupta - AI Engineer &amp; Founder of Dharmasthan</image:title>
+      <image:caption>Official portrait of Nirupam Gupta in a navy bandhgala, AI engineer and founder of Dharmasthan based in Navi Mumbai and Mumbai, Maharashtra, India.</image:caption>
+    </image:image>
+  </url>
+</urlset>
