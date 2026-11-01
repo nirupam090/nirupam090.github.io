@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nirupam Gupta</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="14" fill="%23E8B54D"/%3E%3Crect x="10" y="20.5" width="44" height="5" fill="%23121533"/%3E%3Cpath fill="%23121533" transform="translate(8.27 43.13) scale(0.02344)" d="M74 0V-688H289L629 -401Q635 -396 646 -386Q657 -376 669 -365Q681 -354 691 -345H701Q701 -359 701 -382Q701 -406 701 -428V-688H933V0H720L397 -271Q376 -288 352 -309Q329 -330 315 -343H306Q306 -329 306 -304Q306 -278 306 -252V0Z M1471 12Q1262 12 1157 -76Q1052 -164 1052 -344Q1052 -462 1108 -541Q1163 -620 1268 -660Q1373 -700 1521 -700Q1609 -700 1686 -684Q1764 -667 1824 -634Q1883 -602 1916 -553Q1950 -504 1950 -439H1710Q1710 -460 1696 -477Q1682 -494 1657 -506Q1632 -517 1600 -523Q1568 -529 1532 -529Q1475 -529 1432 -518Q1390 -506 1362 -484Q1333 -461 1319 -429Q1305 -397 1305 -356V-332Q1305 -273 1328 -234Q1352 -196 1399 -178Q1446 -159 1517 -159Q1568 -159 1612 -168Q1656 -177 1682 -196Q1709 -214 1709 -240V-244H1500V-384H1951V0H1811L1789 -76Q1749 -47 1701 -27Q1653 -7 1596 2Q1539 12 1471 12Z"/%3E%3C/svg%3E'>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nirupam Gupta: AI engineer, founder of Dharmasthan, and computer engineering student at SPIT, Mumbai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Onest:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+/* Layout: a split hero (name left, gold arch with the portrait breaking out of it right), then a single centred column of chapters with one wide photo wall. */
+:root {
+  color-scheme: dark;
+  /* palette from the bandhgala in his passport photo: navy cloth, zari gold piping, chalk thread */
+  --bandhgala: #121533;
+  --bandhgala-2: #191D44;
+  --bandhgala-3: #222758;
+  --zari: #E8B54D;
+  --zari-deep: #C99634;
+  --zari-ink: #1A1404;
+  --chalk: #F3F0E9;
+  --slate: #A7ACCF;
+  --line: rgba(167, 172, 207, 0.22);
+  --arch: #E2B04A;
+  --photo-edge: rgba(243, 240, 233, 0.12);
+
+  --bg: var(--bandhgala); --surface: var(--bandhgala-2); --surface-2: var(--bandhgala-3);
+  --text: var(--chalk); --muted: var(--slate); --accent: var(--zari); --accent-strong: var(--zari-deep); --on-accent: var(--zari-ink);
+
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-deva: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+
+  --step--1: clamp(0.84rem, 0.8rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --step-3: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  --step-4: clamp(2.6rem, 1.8rem + 4vw, 5.2rem);
+  --step-5: clamp(3.2rem, 1.6rem + 7.4vw, 8.4rem);
+
+  --wrap: 1180px;
+  --r-photo: 18px;
+  --r-btn: 999px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #EEF0F8; --surface: #E3E6F2; --surface-2: #D7DBEC;
+    --text: #15183A; --muted: #4A4F78; --accent: #9A6A10; --accent-strong: #7E560B; --on-accent: #FFFBF1;
+    --line: rgba(21, 24, 58, 0.16); --photo-edge: rgba(21, 24, 58, 0.12); --arch: #E2B04A;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #EEF0F8; --surface: #E3E6F2; --surface-2: #D7DBEC;
+  --text: #15183A; --muted: #4A4F78; --accent: #9A6A10; --accent-strong: #7E560B; --on-accent: #FFFBF1;
+  --line: rgba(21, 24, 58, 0.16); --photo-edge: rgba(21, 24, 58, 0.12); --arch: #E2B04A;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 var(--step-0)/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent); }
+a:hover { text-decoration-color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--accent); color: var(--on-accent); }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; line-height: 1; text-wrap: balance; overflow-wrap: break-word; }
+h2 { font-size: var(--step-4); font-stretch: 112%; }
+h3 { font-size: var(--step-1); font-stretch: 100%; font-weight: 700; line-height: 1.2; letter-spacing: 0; }
+p { margin: 0; text-wrap: pretty; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.muted { color: var(--muted); }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar__in { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.05rem/1 var(--font-display); font-stretch: 118%; letter-spacing: 0.01em; }
+.mark__logo { height: 22px; width: auto; flex: none; }
+.nav { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav a { display: block; padding: 8px 12px; border-radius: var(--r-btn); text-decoration: none; color: var(--muted); font-size: var(--step--1); font-weight: 500; transition: color .15s ease, background-color .15s ease; }
+.nav a:hover { color: var(--text); background: var(--surface); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 22px; border-radius: var(--r-btn); font: 600 var(--step--1)/1 var(--font-body); text-decoration: none; border: 1px solid var(--line); color: var(--text); background: transparent; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.btn:hover { border-color: var(--text); }
+.btn--gold { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn--gold:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(32px, 5vw, 72px); align-items: end; padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 88px); }
+.hero__deva { font: 400 var(--step-2)/1.2 var(--font-deva); color: var(--accent); margin-bottom: 14px; }
+.hero h1 { font-size: clamp(2.8rem, 0.6rem + 5.8vw, 6.6rem); font-stretch: 118%; font-weight: 900; line-height: 0.88; letter-spacing: -0.02em; text-transform: uppercase; }
+.hero h1 span { display: block; white-space: nowrap; }
+.hero__intro { margin-top: clamp(24px, 3vw, 36px); max-width: 52ch; font-size: var(--step-1); line-height: 1.5; color: var(--text); }
+.hero__intro strong { font-weight: 600; color: var(--accent); }
+.hero__acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.roles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+.roles li { padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--r-btn); font-size: var(--step--1); color: var(--muted); }
+
+.arch { position: relative; justify-self: end; width: min(100%, 440px); aspect-ratio: 4 / 5; padding: 10px; border-radius: 999px 999px 26px 26px; background: radial-gradient(120% 80% at 50% 10%, #F0C468 0%, var(--arch) 55%, #CF9A32 100%); box-shadow: 0 30px 60px -20px rgba(8, 10, 30, 0.45); }
+.arch__photo { width: 100%; height: 100%; margin: 0; border-radius: 999px 999px 18px 18px; overflow: hidden; background: var(--surface-2); }
+.arch__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.arch__cap { position: absolute; left: -16px; bottom: 30px; padding: 10px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; font-size: var(--step--1); line-height: 1.35; box-shadow: 0 10px 30px rgba(8, 10, 30, 0.25); }
+.arch__cap b { display: block; font-weight: 600; color: var(--text); }
+.arch__cap span { color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 span, .hero__deva, .hero__intro, .hero__acts, .roles { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 span:nth-child(2) { animation-delay: .08s; }
+  .hero__intro { animation-delay: .18s; } .roles { animation-delay: .24s; } .hero__acts { animation-delay: .3s; }
+  .arch { animation: archup 1s cubic-bezier(.2,.7,.2,1) both; transform-origin: bottom; }
+  .arch__photo img { animation: settle 1.4s .1s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+  @keyframes archup { from { transform: translateY(28px); opacity: 0; } }
+  @keyframes settle { from { transform: scale(1.08); } }
+}
+
+/* now strip */
+.now { border-block: 1px solid var(--line); }
+.now__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.now__item { padding: 26px 24px 28px; border-left: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.now__item:first-child { border-left: 0; padding-left: 0; }
+.now__when { font-size: var(--step--1); color: var(--accent); font-weight: 600; }
+.now__item p { font-size: var(--step--1); color: var(--muted); }
+
+/* chapters */
+.chapter { padding-block: clamp(72px, 10vw, 140px) 0; }
+.chapter__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+.chapter__head p { font-size: var(--step-1); color: var(--muted); max-width: 46ch; }
+
+/* proof */
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.proof__item { padding: 28px 28px 0 0; display: grid; gap: 10px; align-content: start; }
+.proof__num { font: 900 var(--step-3)/0.9 var(--font-display); font-stretch: 125%; color: var(--accent); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof__item p { color: var(--muted); max-width: 26ch; }
+
+/* timeline */
+.tl { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.tl li { display: grid; grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px 40px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.tl__when { color: var(--muted); font-size: var(--step--1); font-variant-numeric: tabular-nums; padding-top: 4px; }
+.tl__org { color: var(--accent); font-weight: 600; font-size: var(--step--1); margin-top: 6px; }
+.tl li > p { color: var(--muted); }
+.tl b { color: var(--text); font-weight: 600; }
+
+/* dharmasthan chapter */
+.ds { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 56px); align-items: center; background: var(--surface); border-radius: 28px; padding: clamp(20px, 3vw, 40px); }
+.ds__pics { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: end; }
+.ds__pics img { border-radius: var(--r-photo); outline: 1px solid var(--photo-edge); outline-offset: -1px; width: 100%; }
+.ds__pics img:last-child { margin-bottom: 36px; }
+.ds__text { display: grid; gap: 18px; }
+.ds__text h3 { font-size: var(--step-3); font-stretch: 112%; font-weight: 800; line-height: 1.02; }
+.ds__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 6px 0 4px; padding: 0; list-style: none; }
+.ds__facts li { display: grid; gap: 2px; padding-top: 12px; border-top: 2px solid var(--accent); }
+.ds__facts b { font: 800 var(--step-2)/1 var(--font-display); font-stretch: 115%; }
+.ds__facts span { color: var(--muted); font-size: var(--step--1); line-height: 1.35; }
+
+/* trophies */
+.trophies { margin-top: clamp(28px, 4vw, 48px); }
+.trophies__h { font-size: var(--step-2); font-stretch: 112%; font-weight: 800; margin-bottom: 18px; }
+.trophies__row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) minmax(0, 4fr); gap: 14px; }
+.trophy { margin: 0; display: grid; gap: 12px; align-content: start; }
+.trophy img { width: 100%; height: clamp(260px, 28vw, 380px); object-fit: cover; border-radius: var(--r-photo); outline: 1px solid var(--photo-edge); outline-offset: -1px; background: var(--surface-2); }
+.t-shark img { object-position: 50% 35%; }
+.trophy figcaption { display: grid; gap: 2px; font-size: var(--step--1); }
+.trophy figcaption b { color: var(--accent); font-weight: 600; font-size: var(--step-0); }
+.trophy figcaption span { color: var(--muted); }
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+.proj { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding: 26px 0; border-top: 1px solid var(--line); }
+.proj h3 { font-size: var(--step-2); font-stretch: 112%; font-weight: 800; }
+.proj__tag { align-self: start; padding: 4px 10px; border-radius: var(--r-btn); background: var(--surface-2); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+.proj__tag--gold { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+.proj p { grid-column: 1 / -1; color: var(--muted); }
+.proj__meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--step--1); }
+.proj__meta span { color: var(--text); }
+
+/* photo wall */
+.wall { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 14px; }
+.shot { position: relative; margin: 0; border-radius: var(--r-photo); overflow: hidden; background: var(--surface-2); outline: 1px solid var(--photo-edge); outline-offset: -1px; }
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.shot figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(12, 14, 36, 0.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #F3F0E9; font-size: var(--step--1); line-height: 1.35; }
+.shot figcaption b { display: block; font-weight: 600; }
+.shot figcaption a { color: #F3F0E9; }
+.w-a { grid-column: span 7; grid-row: span 4; }
+.w-b { grid-column: span 5; grid-row: span 4; }
+.w-c { grid-column: span 4; grid-row: span 4; }
+.w-d { grid-column: span 4; grid-row: span 4; }
+.w-e { grid-column: span 4; grid-row: span 4; }
+.w-f { grid-column: span 5; grid-row: span 3; }
+.w-g { grid-column: span 7; grid-row: span 3; }
+
+/* wins */
+.wins { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; }
+.winlist { list-style: none; margin: 0; padding: 0; }
+.winlist li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+.winlist .yr { color: var(--muted); font-size: var(--step--1); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.winlist b { font-weight: 600; }
+.winlist .first b { color: var(--accent); }
+.winlist span.where { grid-column: 2; color: var(--muted); font-size: var(--step--1); }
+.side { display: grid; gap: 36px; align-content: start; }
+.paper { padding: 24px; border-radius: 22px; background: var(--surface); display: grid; gap: 10px; }
+.paper .kind { font-size: var(--step--1); color: var(--accent); font-weight: 600; }
+.paper h3 { font-size: var(--step-1); line-height: 1.25; }
+.paper p { color: var(--muted); font-size: var(--step--1); }
+.side h3.label { font-size: var(--step-1); margin-bottom: 12px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.pills li { padding: 7px 12px; border-radius: var(--r-btn); border: 1px solid var(--line); font-size: var(--step--1); }
+
+/* school + beyond */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
+.edu { list-style: none; margin: 0; padding: 0; }
+.edu li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+.edu .score { font: 800 var(--step-2)/1 var(--font-display); font-stretch: 115%; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+.edu .sub { color: var(--muted); font-size: var(--step--1); grid-column: 1; }
+.beyond { display: grid; gap: 18px; }
+.beyond blockquote { margin: 0; padding: 24px 26px; border-radius: 22px; background: var(--surface); }
+.beyond blockquote p { font: 700 var(--step-2)/1.15 var(--font-display); font-stretch: 108%; }
+.beyond blockquote footer { margin-top: 12px; color: var(--muted); font-size: var(--step--1); }
+.beyond ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 8px; }
+.beyond ul b { color: var(--text); font-weight: 600; }
+
+/* contact */
+.contact { margin-top: clamp(72px, 10vw, 140px); background: var(--arch); color: var(--zari-ink); border-radius: 36px 36px 0 0; }
+.contact__in { grid-template-columns: minmax(0, 1fr); position: relative; padding-block: clamp(56px, 8vw, 104px) clamp(40px, 5vw, 64px); display: grid; gap: 28px; }
+.contact__me { position: absolute; right: max(24px, env(safe-area-inset-right, 0px)); bottom: 0; width: clamp(240px, 28vw, 380px); height: auto; pointer-events: none; }
+.contact__in > :not(.contact__me) { position: relative; max-width: min(100%, 680px); }
+.contact h2 { font-size: clamp(2.1rem, 0.4rem + 5.4vw, 5.4rem); font-stretch: 112%; font-weight: 900; text-transform: uppercase; line-height: 0.9; color: var(--zari-ink); }
+.contact h2 span { display: block; white-space: nowrap; }
+.contact__row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.email { font: 700 var(--step-2)/1.1 var(--font-display); font-stretch: 105%; color: var(--zari-ink); user-select: all; overflow-wrap: anywhere; text-decoration: none; border-bottom: 2px solid rgba(26, 20, 4, 0.35); }
+.email:hover { border-bottom-color: var(--zari-ink); }
+.btn--ink { background: var(--zari-ink); color: #F6E7C4; border-color: var(--zari-ink); }
+.btn--ink:hover { background: #2E2509; border-color: #2E2509; }
+.btn--line { border-color: rgba(26, 20, 4, 0.35); color: var(--zari-ink); }
+.btn--line:hover { border-color: var(--zari-ink); }
+.contact :focus-visible { outline-color: var(--zari-ink); }
+.copied { min-height: 1.4em; font-size: var(--step--1); color: rgba(26, 20, 4, 0.75); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-top: 24px; border-top: 1px solid rgba(26, 20, 4, 0.22); font-size: var(--step--1); color: rgba(26, 20, 4, 0.78); }
+
+@media (max-width: 64rem) {
+  .nav { display: none; }
+  .now__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .now__item:nth-child(3) { border-left: 0; padding-left: 0; }
+  .now__item:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tl li { grid-template-columns: 140px minmax(0, 1fr); }
+  .tl li > p { grid-column: 2; }
+}
+@media (max-width: 52rem) {
+  .contact__me { position: static; width: 200px; justify-self: start; order: -1; margin-bottom: -8px; }
+  .trophies__row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .t-shark { grid-row: span 2; }
+  .t-shark img { height: 100%; min-height: 300px; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .arch { justify-self: center; width: min(100%, 360px); order: -1; }
+  .chapter__head, .ds, .wins, .duo, .projects { grid-template-columns: minmax(0, 1fr); }
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; }
+  .w-a, .w-g { grid-column: span 2; grid-row: span 1; }
+  .w-b, .w-c, .w-d, .w-e, .w-f { grid-column: span 1; grid-row: span 1; }
+  .w-b { grid-row: span 2; }
+}
+@media (max-width: 36rem) {
+  .trophies__row { grid-template-columns: minmax(0, 1fr); }
+  .t-shark { grid-row: auto; }
+  .t-shark img { height: 380px; }
+  .now__grid, .proof { grid-template-columns: minmax(0, 1fr); }
+  .now__item { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .now__item:first-child { border-top: 0; }
+  .tl li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .tl li > p { grid-column: 1; }
+  .ds__facts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .wall { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 240px; }
+  .w-a, .w-b, .w-c, .w-d, .w-e, .w-f, .w-g { grid-column: span 1; grid-row: span 1; }
+  .shot figcaption { font-size: 0.82rem; }
+  .arch__cap { left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <a class="mark" href="#top" aria-label="Nirupam Gupta, back to top"><svg class="mark__logo" viewBox="74 -844 1877 856" aria-hidden="true"><rect x="74" y="-844" width="1877" height="135" fill="var(--accent)"/><path fill="currentColor" d="M74 0V-688H289L629 -401Q635 -396 646 -386Q657 -376 669 -365Q681 -354 691 -345H701Q701 -359 701 -382Q701 -406 701 -428V-688H933V0H720L397 -271Q376 -288 352 -309Q329 -330 315 -343H306Q306 -329 306 -304Q306 -278 306 -252V0Z M1471 12Q1262 12 1157 -76Q1052 -164 1052 -344Q1052 -462 1108 -541Q1163 -620 1268 -660Q1373 -700 1521 -700Q1609 -700 1686 -684Q1764 -667 1824 -634Q1883 -602 1916 -553Q1950 -504 1950 -439H1710Q1710 -460 1696 -477Q1682 -494 1657 -506Q1632 -517 1600 -523Q1568 -529 1532 -529Q1475 -529 1432 -518Q1390 -506 1362 -484Q1333 -461 1319 -429Q1305 -397 1305 -356V-332Q1305 -273 1328 -234Q1352 -196 1399 -178Q1446 -159 1517 -159Q1568 -159 1612 -168Q1656 -177 1682 -196Q1709 -214 1709 -240V-244H1500V-384H1951V0H1811L1789 -76Q1749 -47 1701 -27Q1653 -7 1596 2Q1539 12 1471 12Z"/></svg>Nirupam Gupta</a>
+    <ul class="nav" aria-label="Sections">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#dharmasthan">Dharmasthan</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#stage">On stage</a></li>
+      <li><a href="#wins">Wins</a></li>
+    </ul>
+    <a class="btn btn--gold" href="#contact">Say hello</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero" aria-label="Introduction">
+    <div>
+      <p class="hero__deva" lang="hi">निरुपम गुप्ता</p>
+      <h1><span>Nirupam</span><span>Gupta</span></h1>
+      <p class="hero__intro">I build AI systems and the products around them. Founder of <strong>Dharmasthan</strong>, AI engineering intern at DeployProAI, and a computer engineering student at SPIT, Mumbai.</p>
+      <ul class="roles" aria-label="What I do">
+        <li>AI engineer</li>
+        <li>Founder</li>
+        <li>Building since 2018</li>
+        <li>3× paper presentation winner</li>
+        <li>Mastercard Code for Change ’26 finalist</li>
+      </ul>
+      <div class="hero__acts">
+        <a class="btn btn--gold" href="#contact">Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/nirupam090/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/nirupam090" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="arch">
+      <figure class="arch__photo"><img src="assets/hero-sies.jpg" width="880" height="1100" alt="Nirupam Gupta speaking at a podium at SIES Graduate School of Technology."></figure>
+      <p class="arch__cap"><b>On stage at SIES</b><span>Graduate School of Technology, Navi Mumbai</span></p>
+    </div>
+  </section>
+
+  <section class="now" aria-label="Right now">
+    <div class="wrap now__grid">
+      <div class="now__item"><span class="now__when">Since Sep 2026</span><h3>Founder, Dharmasthan</h3><p>A shared home for Hindu devotion, live at dharmasthan.in.</p></div>
+      <div class="now__item"><span class="now__when">Since May 2026</span><h3>AI engineering, DeployProAI</h3><p>Production AI agents and backends, with the founder.</p></div>
+      <div class="now__item"><span class="now__when">Since Aug 2026</span><h3>Vice-Chairperson, SP Consulting Group</h3><p>Consulting projects for 7+ corporate clients.</p></div>
+      <div class="now__item"><span class="now__when">2025 to 2028</span><h3>B.Tech, SPIT Mumbai</h3><p>Computer engineering, with a Barclays minor in banking technology.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap chapter" aria-labelledby="proof-h">
+    <div class="chapter__head">
+      <h2 id="proof-h">A few numbers I’m proud of</h2>
+      <p>Each one came from shipping something real, or from standing up and explaining it.</p>
+    </div>
+    <div class="proof">
+      <div class="proof__item"><span class="proof__num">3</span><p><a href="#first-prizes">national first prizes</a> for Dharmasthan in 2026</p></div>
+      <div class="proof__item"><span class="proof__num">2,000+</span><p>people used Dharmasthan in its first 45 days</p></div>
+      <div class="proof__item"><span class="proof__num">10.0</span><p>CGPA in the Barclays banking technology minor</p></div>
+      <div class="proof__item"><span class="proof__num">40%</span><p>less manual work from automations I built at IGT</p></div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap chapter" aria-labelledby="work-h">
+    <div class="chapter__head">
+      <h2 id="work-h">Where I’ve worked</h2>
+      <p>From a gold trading firm’s website to production AI agents, and now my own company.</p>
+    </div>
+    <ol class="tl">
+      <li><span class="tl__when">Sep 2026 to now</span><div><h3>Founder</h3><p class="tl__org">Dharmasthan</p></div><p>Started it after years inside our local mandals. I lead product, onboarding, growth and operations, and build alongside my co-founder Jay Patil.</p></li>
+      <li><span class="tl__when">Aug 2026 to now</span><div><h3>Vice-Chairperson</h3><p class="tl__org">Sardar Patel Consulting Group</p></div><p>Lead the committee across research, finance and technology work for <b>7+ corporate clients</b>.</p></li>
+      <li><span class="tl__when">May 2026 to now</span><div><h3>AI Engineering Intern</h3><p class="tl__org">DeployProAI</p></div><p>Build AI-native apps, autonomous agents and secure backends for live enterprise clients, test-first, working directly with the founder.</p></li>
+      <li><span class="tl__when">Sep 2023 to Feb 2026</span><div><h3>Technology &amp; Automation Associate</h3><p class="tl__org">IGT India Gold Trading</p></div><p>Made the website <b>35% faster</b>, built <b>10 automations</b> that cut manual work by 40%, and pipelines behind <b>2,000+ qualified leads</b>.</p></li>
+      <li><span class="tl__when">Oct 2022 to Jan 2023</span><div><h3>Head of Events &amp; Engagement</h3><p class="tl__org">Maker Mela, riidl Somaiya</p></div><p>Led <b>100+ volunteers</b> running speaker sessions, main-stage events and startup showcases.</p></li>
+    </ol>
+  </section>
+
+  <section id="dharmasthan" class="wrap chapter" aria-labelledby="ds-h">
+    <div class="chapter__head">
+      <h2 id="ds-h">What I’m building</h2>
+      <p>The problem I grew up with, turned into a product.</p>
+    </div>
+    <div class="ds">
+      <div class="ds__pics">
+        <img src="assets/dharmasthan-launch.jpg" width="900" height="1124" alt="Dharmasthan launch poster: A home for devotion. Aartis, mandals, live ceremonies and competitions, all in one place.">
+        <img src="assets/room-deva.jpg" width="560" height="1087" alt="A phone in a live Dharmasthan aarti room with the current stanza highlighted as singing now.">
+      </div>
+      <div class="ds__text">
+        <h3>Dharmasthan keeps a whole room on the same verse.</h3>
+        <p class="muted">At every aarti in ShivSai Mitra Mandal, people read from different books and the room lost its place. On Dharmasthan the host moves the stanza and every phone follows. Mandals also get a free website, and festival contests sit in one directory.</p>
+        <ul class="ds__facts">
+          <li><b>2,000+</b><span>people served since launch</span></li>
+          <li><b>196</b><span>aartis and bhajans in 5 languages</span></li>
+          <li><b>3</b><span>national first prizes</span></li>
+        </ul>
+        <div class="hero__acts" style="margin-top:4px">
+          <a class="btn btn--gold" href="https://dharmasthan.in" target="_blank" rel="noopener">Visit dharmasthan.in</a>
+          <a class="btn" href="https://www.linkedin.com/feed/update/urn:li:activity:7511298192001638400/" target="_blank" rel="noopener">Read the launch post</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="trophies" id="first-prizes" aria-labelledby="tr-h">
+      <h3 id="tr-h" class="trophies__h">Three national first prizes, 2026</h3>
+      <div class="trophies__row">
+        <figure class="trophy t-shark">
+          <img src="assets/win-sharktank.jpg" width="720" height="960" alt="Nirupam and his teammate holding the Shark Tank winner's cheque for 35,000 rupees at Fr. CRCE, Mumbai.">
+          <figcaption><b>1st Prize, Shark Tank 2026</b><span>Fr. CRCE, Mumbai. ₹35,000 winner’s cheque.</span></figcaption>
+        </figure>
+        <figure class="trophy t-vf">
+          <img src="assets/win-venturefest.jpg" width="900" height="675" alt="Receiving the VentureFest 2026 certificate of merit at SRM Institute of Science and Technology.">
+          <figcaption><b>1st Prize, VentureFest 2026</b><span>SRM University, Chennai.</span></figcaption>
+        </figure>
+        <figure class="trophy t-ix">
+          <img src="assets/win-incubex.jpg" width="900" height="675" alt="On stage at Incubex 2026, MIT World Peace University, receiving the trophy with the chief guests.">
+          <figcaption><b>Grand Prix, Incubex 2026</b><span>MIT-WPU, Pune.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap chapter" aria-labelledby="pr-h">
+    <div class="chapter__head">
+      <h2 id="pr-h">Other things I’ve built</h2>
+      <p>AI, fintech, security and hardware, alone and in teams. Plenty more are closed source.</p>
+    </div>
+    <div class="projects">
+      <article class="proj"><h3>CredLink</h3><span class="proj__tag proj__tag--gold">Top 15 of ~200</span><p>One digital credential that moves with you across education, jobs, banking and healthcare. Built as a full-stack app in eight hours at the XIE-CSI hackathon.</p><div class="proj__meta"><span>Auth, role-based access</span></div></article>
+      <article class="proj"><h3>Volunteer feedback platform</h3><span class="proj__tag proj__tag--gold">Mastercard finalist</span><p>Feedback and experience tracking for Seva Sahayog Foundation, with AI-generated insights. I led the frontend and integration.</p><div class="proj__meta"><span>Code for Change 3.0</span></div></article>
+      <article class="proj"><h3>Lumina</h3><span class="proj__tag proj__tag--gold">SE Hack ’26 winner</span><p>An AI student assistant: OCR timetables, attendance forecasts, and private on-device search with a tiny language model.</p><div class="proj__meta"><span>Flutter, Node.js, Python</span><a href="https://github.com/nirupam090/lumina" target="_blank" rel="noopener">Code</a></div></article>
+      <article class="proj"><h3>FraudShield</h3><span class="proj__tag">Fintech</span><p>Real-time fraud scoring for Indian banking with Gemini explanations for investigators. 10K+ simulated transactions a minute, 55+ tests.</p><div class="proj__meta"><span>Python, FastAPI, Streamlit</span></div></article>
+      <article class="proj"><h3>MediHaven</h3><span class="proj__tag">Health</span><p>A medical records vault with a four-model ML risk ensemble and one-tap sharing. I built the ML pipeline.</p><div class="proj__meta"><span>Python, ML, Gemini</span><a href="https://github.com/param7862989-ops/MediH" target="_blank" rel="noopener">Code</a></div></article>
+      <article class="proj"><h3>VERA</h3><span class="proj__tag">Hardware</span><p>A multilingual voice assistant across two ESP32 boards, with speech in and out running in parallel and replies under 300 ms.</p><div class="proj__meta"><span>C++, Deepgram, ESP32</span></div></article>
+      <article class="proj"><h3>Romora</h3><span class="proj__tag">Security</span><p>Encrypted, signed messages hidden inside images. I built the receiver: ECDH, RSA-OAEP decryption and LSB extraction.</p><div class="proj__meta"><span>Cryptography</span><a href="https://github.com/Shrey-Sawant/romora_cns_project" target="_blank" rel="noopener">Code</a></div></article>
+      <article class="proj"><h3>AskMyNotes</h3><span class="proj__tag">AI</span><p>A study assistant that answers only from your own notes, and quizzes you on them.</p><div class="proj__meta"><span>Python, FastAPI, Gemini</span></div></article>
+    </div>
+  </section>
+
+  <section id="stage" class="wrap chapter" aria-labelledby="st-h">
+    <div class="chapter__head">
+      <h2 id="st-h">On stage this year</h2>
+      <p>Hackathons, finals and paper presentations, from my LinkedIn posts.</p>
+    </div>
+    <div class="wall">
+      <figure class="shot w-a"><img src="assets/c4c-stage.jpg" width="848" height="478" alt="Nirupam's team presenting on stage at Mastercard Code for Change 3.0."><figcaption><b>Finalist, Mastercard Code for Change 3.0</b>Eight strangers a week earlier, one team on stage. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7498302923131764736/" target="_blank" rel="noopener">The story</a></figcaption></figure>
+      <figure class="shot w-b"><img src="assets/vjti-award.jpg" width="900" height="1200" alt="Nirupam receiving his award certificate at VJTI, Mumbai." style="object-position:50% 40%"><figcaption><b>2nd Runner-up, national paper presentation</b>VJTI, National Science Day 2026. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7434956812371755008/" target="_blank" rel="noopener">The story</a></figcaption></figure>
+      <figure class="shot w-c"><img src="assets/technovanza.jpg" width="900" height="1200" alt="Nirupam with three others in front of the Technovanza banner at VJTI." style="object-position:50% 45%"><figcaption><b>Technovanza 2026</b>VJTI, Mumbai, on the day of the paper presentation.</figcaption></figure>
+      <figure class="shot w-d"><img src="assets/xie-team.jpg" width="800" height="800" alt="Team Git Happens at the XIE-CSI hackathon."><figcaption><b>Top 15 of ~200 teams</b>CredLink at XIE-CSI, 3 Oct 2026. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7514339435581251584/" target="_blank" rel="noopener">The story</a></figcaption></figure>
+      <figure class="shot w-e"><img src="assets/codeverse.jpg" width="800" height="600" alt="Team Git Happens at CODEVERSE 2.0, DJSCE."><figcaption><b>5th at CODEVERSE 2.0</b>Led the leaderboard for the first hour. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7516000507287740416/" target="_blank" rel="noopener">The story</a></figcaption></figure>
+      <figure class="shot w-f"><img src="assets/c4c-team.jpg" width="800" height="600" alt="The Code for Change team at night outside Mastercard's office."><figcaption><b>The Code for Change team</b>After the final pitch.</figcaption></figure>
+      <figure class="shot w-g"><img src="assets/vjti-festival.jpg" width="800" height="600" alt="The Maharashtra Innovation Festival 2026 stage at VJTI."><figcaption><b>Maharashtra Innovation Festival 2026</b>Technovanza’s 25th year, VJTI Mumbai.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="wins" class="wrap chapter" aria-labelledby="wn-h">
+    <div class="chapter__head">
+      <h2 id="wn-h">Wins and writing</h2>
+      <p>Startup competitions, hackathons, papers and a merit scholarship.</p>
+    </div>
+    <div class="wins">
+      <ul class="winlist">
+        <li class="first"><span class="yr">2026</span><b>1st Prize, VentureFest</b><span class="where">SRM University, Chennai, for Dharmasthan</span></li>
+        <li class="first"><span class="yr">2026</span><b>Grand Prix, Incubex</b><span class="where">MIT-WPU, Pune, for Dharmasthan</span></li>
+        <li class="first"><span class="yr">2026</span><b>1st Prize, Shark Tank</b><span class="where">Fr. CRCE, Mumbai, for Dharmasthan. ₹35,000 prize</span></li>
+        <li><span class="yr">2026</span><b>Finalist, Mastercard Code for Change 3.0</b><span class="where">Team of 8, for Seva Sahayog Foundation</span></li>
+        <li><span class="yr">2026</span><b>Winner, Equinox iGNITE</b><span class="where">State-level project competition, K.K. Wagh, Nashik</span></li>
+        <li><span class="yr">2026</span><b>Best in App Development, SE Hack</b><span class="where">24-hour hackathon, SPIT, for Lumina</span></li>
+        <li><span class="yr">2026</span><b>2nd Runner-up, national paper presentation</b><span class="where">Maharashtra Innovation Festival, VJTI</span></li>
+        <li><span class="yr">2026</span><b>Top 15 of ~200, XIE-CSI hackathon</b><span class="where">For CredLink</span></li>
+        <li><span class="yr">2026</span><b>5th, CODEVERSE 2.0</b><span class="where">DJ Sanghvi College of Engineering</span></li>
+        <li><span class="yr">2026</span><b>Top 5, Zerodha Varsity zonal round</b><span class="where">Zerodha</span></li>
+        <li><span class="yr">2025</span><b>2nd Runner-up, KBK 3.0 technical quiz</b><span class="where">V.E.S. Polytechnic, Mumbai</span></li>
+        <li><span class="yr">2024</span><b>1st Runner-up, TechKnow paper presentation</b><span class="where">Government Polytechnic, Mumbai</span></li>
+        <li><span class="yr">2024</span><b>Honourable Mention, AR Hackathon</b><span class="where">Meta Developer Circle and XDG Mumbai</span></li>
+        <li><span class="yr">2023</span><b>1st Runner-up, Tech Fair paper presentation</b><span class="where">SBMP, Mumbai</span></li>
+        <li><span class="yr">SPIT</span><b>Sameer Tanna Foundation scholarship</b><span class="where">One of 25 chosen from 500 students</span></li>
+      </ul>
+      <div class="side">
+        <article class="paper">
+          <span class="kind">Published, IJSREM, January 2024</span>
+          <h3>ChatGPT: From Natural Language Processing to Responsible AI</h3>
+          <p>Lead author. Implications, challenges and future developments.</p>
+          <a class="btn" href="https://ijsrem.com/download/chat-gpt-from-natural-language-processing-to-responsible-ai-implications-challenges-and-future-developments" target="_blank" rel="noopener" style="justify-self:start">Read the paper</a>
+        </article>
+        <article class="paper">
+          <span class="kind">Presented, VJTI, February 2026</span>
+          <h3>Artificial Intelligence: evolution, architectures, autonomous agents, governance, and the road to general intelligence</h3>
+          <p>2nd runner-up at a national-level paper presentation competition.</p>
+        </article>
+        <div>
+          <h3 class="label">Certifications</h3>
+          <ul class="pills">
+            <li>Claude Code in Action, Anthropic</li>
+            <li>Building with the Claude API, Anthropic</li>
+            <li>Fortinet NSE 1</li>
+            <li>Fortinet NSE 2</li>
+            <li>Fortinet NSE 3</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="label">Tools I reach for</h3>
+          <ul class="pills">
+            <li>Python</li><li>C++</li><li>TypeScript</li><li>FastAPI</li><li>Next.js</li><li>Node.js</li><li>Flutter</li><li>Supabase</li><li>Docker</li><li>Claude Code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap chapter" aria-labelledby="sc-h">
+    <div class="chapter__head">
+      <h2 id="sc-h">School, and the rest of me</h2>
+      <p>Diploma first, then a B.Tech, and a few things off the laptop.</p>
+    </div>
+    <div class="duo">
+      <ul class="edu">
+        <li><h3>B.Tech, Computer Engineering</h3><span class="score">9.0</span><span class="sub">Sardar Patel Institute of Technology, 2025 to 2028. CGPA, semester 4.</span></li>
+        <li><h3>Minor in Banking Technology</h3><span class="score">10.0</span><span class="sub">Barclays industry program at SPIT, 2026 to 2028.</span></li>
+        <li><h3>Diploma, Computer Engineering</h3><span class="score">94.7%</span><span class="sub">K.J. Somaiya Polytechnic, 2022 to 2025.</span></li>
+        <li><h3>Class 10</h3><span class="score">94%</span><span class="sub">St. Mary’s High School, Navi Mumbai.</span></li>
+      </ul>
+      <div class="beyond">
+        <blockquote>
+          <p>“Don’t forget to enjoy the journey.”</p>
+          <footer>Me, after a hackathon, watching the sunset at Mahim Chowpatty</footer>
+        </blockquote>
+        <ul>
+          <li><b>Languages:</b> Hindi, English and Marathi. Some Sanskrit and German.</li>
+          <li><b>Volunteering:</b> ISKCON Chowpatty, 2025.</li>
+          <li><b>Programs:</b> Campus to Founder and E-Summit at SP-TBI; Art of Living YES+.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="contact" aria-labelledby="ct-h">
+  <div class="wrap contact__in">
+    <img class="contact__me" src="assets/portrait.webp" width="700" height="913" alt="Portrait of Nirupam Gupta in a navy bandhgala.">
+    <h2 id="ct-h"><span>Let’s build</span><span>something.</span></h2>
+    <div class="contact__row">
+      <a class="email" href="mailto:nirupam090@gmail.com">nirupam090@gmail.com</a>
+      <button class="btn btn--ink" type="button" id="copy">Copy email</button>
+    </div>
+    <p class="copied" id="copied" aria-live="polite"></p>
+    <div class="contact__row">
+      <a class="btn btn--line" href="https://www.linkedin.com/in/nirupam090/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn--line" href="https://github.com/nirupam090" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn--line" href="https://x.com/nirupam090" target="_blank" rel="noopener">X</a>
+      <a class="btn btn--line" href="https://www.instagram.com/nirupam_090/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn--line" href="https://dharmasthan.in" target="_blank" rel="noopener">Dharmasthan</a>
+    </div>
+    <div class="foot"><span>Nirupam Gupta, Navi Mumbai. Building since 2018.</span><span>Updated November 2026</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const b = document.getElementById('copy'), out = document.getElementById('copied'), a = document.querySelector('.email');
+  if (!b) return;
+  b.addEventListener('click', () => {
+    const sel = () => { const r = document.createRange(); r.selectNodeContents(a); const s = getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.'; };
+    try { navigator.clipboard.writeText(a.textContent.trim()).then(() => { out.textContent = 'Copied to your clipboard.'; }, sel); } catch (e) { sel(); }
+  });
+})();
+</script>
+
+</body>
+</html>

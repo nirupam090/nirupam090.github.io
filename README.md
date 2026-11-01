@@ -1,1 +1,3 @@
-# nirupam090.github.io
+# nirupam.me
+
+Personal portfolio website of [Nirupam Gupta](https://nirupam.me).
